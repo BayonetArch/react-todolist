@@ -1,0 +1,257 @@
+.check-image {
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+}
+
+.check-image.done {
+  color: red;
+}
+
+li {
+  list-style: none;
+}
+
+input,
+button,
+li,
+.box {
+  margin: 0;
+}
+
+.list-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--text);
+  background-color: var(--border);
+  border-radius: 6px;
+  padding: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.list-row:hover {
+  background-color: var(--accent-border);
+}
+
+.item-list {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.box {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--code-bg);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.box:hover {
+  border-color: #789978;
+}
+
+.box.done {
+  background-color: #789978;
+  border-color: #789978;
+  transform: scale(1.05);
+}
+
+.check-icon {
+  width: 12px;
+  height: 12px;
+  filter: brightness(0) invert(1);
+  animation: checkPop 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.remove-item {
+  background: none;
+  border: none;
+  color: var(--text-m);
+  font-size: 1.25rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  scale: 1.1;
+  transition: all 0.15s ease;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.list-row:hover .remove-item {
+  opacity: 1;
+  color: var(--text);
+}
+
+.remove-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.item-list.done {
+  text-decoration: line-through;
+  text-decoration-color: var(--accent);
+  color: var(--text-m);
+}
+
+.app-header {
+  color: var(--text-h);
+  text-align: center;
+}
+
+.todo-app-wrapper {
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  gap: 12px;
+}
+
+input {
+  border-radius: 6px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  width: 100%;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+  background-color: var(--code-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+input::placeholder {
+  font-style: normal;
+  color: var(--text-m);
+}
+
+input:hover {
+  border-color: #3b3f4e;
+}
+
+input:focus {
+  background-color: var(--code-bg);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.commands {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.commands button {
+  background-color: var(--button-bg);
+  border: 1px solid rgba(192, 132, 252, 0.2);
+  border-radius: 6px;
+  padding: 8px 14px;
+  color: var(--text-h);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.commands button:hover {
+  background-color: var(--accent-border);
+}
+
+.commands button:active {
+  background-color: var(--accent-bg);
+}
+
+@media (max-width: 1023px) {
+  .todo-app {
+    width: 80%;
+  }
+
+  body {
+    overflow: visible;
+  }
+
+  .commands {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .commands button {
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    padding: 10px;
+  }
+
+  @media (hover: none) or (pointer: coarse) {
+    .remove-item {
+      opacity: 1;
+      scale: 1.3;
+      color: var(--text-m);
+    }
+
+    .list-row:hover {
+      background-color: var(--accent-bg);
+    }
+    .commands button:hover {
+      background-color: var(--button-bg);
+    }
+  }
+  .item-list {
+    font-size: 0.85rem;
+  }
+
+  .box {
+    scale: 1.2;
+  }
+}
